@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Food from "./Food";
+
+const favArr = ["김치", "볶음", "파전"];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <h1>좋아하는 음식 목록</h1>
+
+      <ul>
+        {favArr.map((ele) => {
+          return (
+            <li>
+              <Food fav={ele} />
+            </li>
+          );
+        })}
+      </ul>
+    </React.Fragment>
   );
 }
 
