@@ -4,8 +4,8 @@
 
 ## git commit 방법
 
+```
 git add .
-
 git commit -m "커밋 메세지"
-
 git push
+```
