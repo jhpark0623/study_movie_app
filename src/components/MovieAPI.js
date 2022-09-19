@@ -19,11 +19,11 @@ function MovieAPI(props) {
       </div>
       <br />
       <div className="movie__average">
-        평점 :{" "}
+        평점 : {props.vote_average} / 10{" "}
         {Array(Number(props.vote_average.toFixed(0)))
           .fill(0)
           .map((ele, idx) => {
-            <span key={idx}>⭐</span>;
+            return <span key={idx}>⭐</span>;
           })}
       </div>
 
