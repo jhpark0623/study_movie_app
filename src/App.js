@@ -1,50 +1,52 @@
-import { render } from "@testing-library/react";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import MovieAPI from "./components/MovieAPI";
+import "./App.css";
 
-//state는 동적 데이터를 다룰때 사용하는 react 요소
+function App(props) {
+  const [loading, setLoading] = useState(true);
+  const [movies, setMovies] = useState([]);
 
-// 함수 컴포넌트
-/*function App() {
-  return <div>함수 컴포넌트</div>;
-}*/
+  async function getMovieAPI() {
+    if (0 < movies.length) return;
 
-// 클래스 컴포넌트
-/*class App extends React.Component {
-  render() {
-    return <div>클래스 컴포넌트</div>;
-  }
-}*/
-
-class App extends React.Component {
-  constructor(props) {
-    super(props); // 부모 생성자 호출
-    this.state = {
-      count: 999,
-    };
-  }
-
-  plusFn = () => {
-    // this.setState({ count: this.state.count + 1 });
-    this.setState(function (state) {
-      return { count: state.count + 1, test: 0 };
-    });
-  };
-  minesFn = () => {
-    // this.setState({ count: this.state.count - 1 });
-    this.setState(function (state) {
-      return { count: state.count - 1 };
-    });
-  };
-
-  render() {
-    return (
-      <div>
-        <h1>카운터 : {this.state.count}</h1>
-        <button onClick={this.plusFn}>+1</button>{" "}
-        <button onClick={this.minesFn}>-1</button>
-      </div>
+    const result = await axios.get(
+      "https://api.themoviedb.org/3/movie/now_playing?api_key=eee0b404582b9d52a555bb1670de9f30&language=ko&page=1&region=kr"
     );
+    setMovies(result.data.results);
+    setLoading(false);
   }
+
+  useEffect(() => {
+    getMovieAPI();
+  }, []);
+
+  return (
+    <>
+      {loading ? (
+        <div>로딩중...</div>
+      ) : (
+        <>
+          <h1>영화 추천 목록</h1>
+          {movies.map((ele) => {
+            return (
+              <MovieAPI
+                key={ele.id}
+                title={ele.title}
+                backdrop_path={ele.backdrop_path}
+                overview={ele.overview}
+                vote_average={ele.vote_average}
+                adult={ele.adult}
+                original_language={ele.original_language}
+                release_date={ele.release_date}
+                id={ele.id}
+              />
+            );
+          })}
+        </>
+      )}
+    </>
+  );
 }
 
 export default App;
