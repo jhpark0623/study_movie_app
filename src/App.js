@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import MovieList from "./components/MovieList";
 import ClickCounter from "./components/ClickCounter";
 import Menu from "./components/Menu";
+import Youtube from "./components/Youtube";
 
 function Home() {
   return <h2>Home</h2>;
@@ -33,6 +34,7 @@ function App(props) {
         />
         <Route path="/clickcounter" element={<ClickCounter />} />
         <Route path="/about" element={<About />} />
+        <Route path="/youtube" element={<Youtube />} />
       </Routes>
     </BrowserRouter>
   );

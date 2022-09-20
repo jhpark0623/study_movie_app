@@ -40,6 +40,9 @@ function Menu() {
         <li>
           <Link to="/about">About us</Link>
         </li>
+        <li>
+          <Link to="/youtube">Youtube</Link>
+        </li>
       </ul>
     </nav>
   );
