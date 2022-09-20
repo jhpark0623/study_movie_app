@@ -1,7 +1,7 @@
 import propTypes from "prop-types";
 import "./Movie.css";
 
-function MovieAPI(props) {
+function MovieCom(props) {
   return (
     <div className="movie__data">
       <div className="movie__poster">
@@ -36,10 +36,10 @@ function MovieAPI(props) {
   );
 }
 
-MovieAPI.propTypes = {
+MovieCom.propTypes = {
   id: propTypes.number.isRequired,
   title: propTypes.string.isRequired,
-  backdrop_path: propTypes.string.isRequired,
+  backdrop_path: propTypes.string,
   overview: propTypes.string.isRequired,
   vote_average: propTypes.number.isRequired,
   adult: propTypes.bool.isRequired,
@@ -47,4 +47,4 @@ MovieAPI.propTypes = {
   release_date: propTypes.string.isRequired,
 };
 
-export default MovieAPI;
+export default MovieCom;

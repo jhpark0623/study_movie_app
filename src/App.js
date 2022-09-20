@@ -1,52 +1,45 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import MovieAPI from "./components/MovieAPI";
-import "./App.css";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import MovieList from "./components/MovieList";
+import ClickCounter from "./components/ClickCounter";
+import Menu from "./components/Menu";
+
+function Home() {
+  return <h2>Home</h2>;
+}
+function About() {
+  return <h2>만든사람 - 잘난 박종훈</h2>;
+}
 
 function App(props) {
-  const [loading, setLoading] = useState(true);
-  const [movies, setMovies] = useState([]);
-
-  async function getMovieAPI() {
-    if (0 < movies.length) return;
-
-    const result = await axios.get(
-      "https://api.themoviedb.org/3/movie/now_playing?api_key=eee0b404582b9d52a555bb1670de9f30&language=ko&page=1&region=kr"
-    );
-    setMovies(result.data.results);
-    setLoading(false);
-  }
-
-  useEffect(() => {
-    getMovieAPI();
-  }, []);
-
   return (
-    <>
-      {loading ? (
-        <div>로딩중...</div>
-      ) : (
-        <>
-          <h1>영화 추천 목록</h1>
-          {movies.map((ele) => {
-            return (
-              <MovieAPI
-                key={ele.id}
-                title={ele.title}
-                backdrop_path={ele.backdrop_path}
-                overview={ele.overview}
-                vote_average={ele.vote_average}
-                adult={ele.adult}
-                original_language={ele.original_language}
-                release_date={ele.release_date}
-                id={ele.id}
-              />
-            );
-          })}
-        </>
-      )}
-    </>
+    <BrowserRouter>
+      <div>
+        <Menu />
+      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/popular"
+          element={<MovieList apiPath="popular" listName="인기 영화 목록" />}
+        />
+        <Route
+          path="/now_playing"
+          element={<MovieList apiPath="now_playing" listName="상영중인 영화" />}
+        />
+        <Route
+          path="/upcoming"
+          element={<MovieList apiPath="upcoming" listName="개봉 예정 영화" />}
+        />
+        <Route path="/clickcounter" element={<ClickCounter />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   );
+
+  /*return (
+    
+  );*/
 }
 
 export default App;

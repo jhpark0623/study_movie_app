@@ -2,16 +2,18 @@ import React, { useState } from "react";
 
 function ClickCounter(props) {
   let [count, setCount] = useState(0);
-  let [timerId, setTimerId] = useState();
+  let [timerId, setTimerId] = useState(0);
 
   function plus() {
-    setTimerId(
-      (timerId = setInterval(() => {
-        setCount((num) => {
-          return num + 1;
-        });
-      }, 1))
-    );
+    if (timerId === 0) {
+      setTimerId(
+        (timerId = setInterval(() => {
+          setCount((num) => {
+            return num + 1;
+          });
+        }, 1))
+      );
+    }
   }
 
   function minus() {
