@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { HashRouter, Routes, Route, Link } from "react-router-dom";
 import MovieList from "./components/MovieList";
 import ClickCounter from "./components/ClickCounter";
 import Menu from "./components/Menu";
@@ -14,7 +14,7 @@ function About() {
 
 function App(props) {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div>
         <Menu />
       </div>
@@ -36,7 +36,7 @@ function App(props) {
         <Route path="/about" element={<About />} />
         <Route path="/youtube" element={<Youtube />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 
   /*return (
