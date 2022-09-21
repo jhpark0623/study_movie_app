@@ -6,9 +6,6 @@ function Menu() {
     <nav>
       <ul>
         <li>
-          <Link to="/clickcounter">카운터</Link>
-        </li>
-        <li>
           <Link to="/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -29,6 +26,10 @@ function Menu() {
           </Link>
         </li>
         <li>
+          <Link to="/clickcounter">카운터</Link>
+        </li>
+
+        <li>
           <Link to="/popular">인기 영화</Link>
         </li>
         <li>
@@ -42,6 +43,12 @@ function Menu() {
         </li>
         <li>
           <Link to="/youtube">Youtube</Link>
+        </li>
+        <li>
+          <Link to="/tailwind">tailwind</Link>
+        </li>
+        <li>
+          <Link to="/kakaoTalk">KakaoTalk</Link>
         </li>
       </ul>
     </nav>
