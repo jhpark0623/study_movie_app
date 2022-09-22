@@ -3,7 +3,6 @@
   color: white;
   width: 600px;
   height: 100%;
-  position: relative;
 }
 
 .yt__top {
@@ -221,10 +220,6 @@
   height: 50px;
   width: 100%;
   padding: 10px 0px;
-
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
 }
 
 .yt__bottom_home_icon {
