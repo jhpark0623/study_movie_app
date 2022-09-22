@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 function KakaoTalk() {
   return (
     <>
-      <div className="border-black border-2 bg-black text-white p-5 max-w-[1000px]  relative">
+      <div className="dark:bg-black dark:text-white bg-white text-b p-5 max-w-[1000px]  relative">
         {/* 상단바 */}
         <div className="flex justify-between mb-10">
           <div className="font-bold text-3xl">더보기</div>
@@ -192,14 +194,17 @@ function KakaoTalk() {
           <div className=" absolute bottom-5 left-3 text-lg font-bold">
             오버솔 블랙라벨 화이트 스니커츠 7CM
           </div>
-          <div className=" border-solid border-gray-500 border-[1px] absolute bottom-5 right-2 p-1">
+          <Link
+            to="https://naver.com"
+            className=" border-solid border-gray-500 border-[1px] absolute bottom-5 right-2 p-1"
+          >
             알아보기
-          </div>
+          </Link>
         </div>
       </div>
 
       {/* 하단바 */}
-      <div className="flex justify-around bg-gray-900 h-20 text-white text-3xl  max-w-[1000px]">
+      <div className="flex justify-around dark:bg-gray-900 h-20 dark:text-white text-3xl  max-w-[1000px] bg-gray-100 text-black">
         <div className=" hover:bg-gray-400 flex justify-center items-center  h-full w-full">
           🙋‍♀️
         </div>

@@ -1,7 +1,19 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Menu.css";
 
 function Menu() {
+  let [darkMode, setdarkMode] = useState(false);
+
+  function toggle() {
+    setdarkMode(!darkMode);
+    if (!darkMode) {
+      document.querySelector("body").classList.add("dark");
+    } else {
+      document.querySelector("body").classList.remove("dark");
+    }
+  }
+
   return (
     <nav>
       <ul>
@@ -49,6 +61,17 @@ function Menu() {
         </li>
         <li>
           <Link to="/kakaoTalk">KakaoTalk</Link>
+        </li>
+        <li>
+          <div className="text-white">
+            <input
+              id="toggle_dark"
+              type="checkBox"
+              checked={darkMode}
+              onChange={toggle}
+            ></input>
+            <label htmlFor="toggle_dark">다크모드</label>
+          </div>
         </li>
       </ul>
     </nav>
