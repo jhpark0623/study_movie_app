@@ -16,6 +16,11 @@ function ClickCounter(props) {
     }
   }
 
+  const po = () => {
+    clearInterval(timerId);
+    setTimerId(0);
+  };
+
   function minus() {
     clearInterval(timerId);
     setTimerId(0);
@@ -40,7 +45,7 @@ function ClickCounter(props) {
         <button className="myButton" onClick={plus}>
           start
         </button>{" "}
-        <button className="myButton" onClick={minus}>
+        <button className="myButton" onClick={po}>
           stop
         </button>
       </div>

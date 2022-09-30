@@ -6,7 +6,6 @@ import "./MovieList.css";
 function MovieList(props) {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
-  const [url, setUrl] = useState(false);
 
   async function getMovieAPI() {
     // if (0 < movies.length) return;
@@ -23,6 +22,8 @@ function MovieList(props) {
     setMovies([]);
     getMovieAPI();
   }, [props.apiPath]);
+
+  useEffect(() => {}, []);
 
   return (
     <>
